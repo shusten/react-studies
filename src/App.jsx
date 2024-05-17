@@ -27,14 +27,12 @@ function handleAddTask() {
         <button className={styles.button} onClick={handleAddTask}>Add</button>
       </div>
 
-      <div>
+      <div className={styles.tasks}>
         {tasks.length > 0 && tasks.map(item => (
           <Task key={item.id} task={item} />
         ))}
-      </div>
-      
-
       {!tasks.length && <p>Nenhuma tarefa ainda... 😕 </p>}
+      </div>
    </main>
   )
 }

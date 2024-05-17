@@ -50,6 +50,15 @@
     transition: filter 150ms;
 }
 
-button:hover {
+.button:hover {
     filter: brightness(0.75);
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    width: 100%;
 }
