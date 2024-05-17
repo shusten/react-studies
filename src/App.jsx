@@ -1,23 +1,32 @@
+import { useRef, useState } from "react"
 import { Task } from "./components/Task"
 
-const tasks = [
- {  id: 1,
-    title: "Estudar ",
-    inCompleted: 'false'
-  },
- {  id: 2,
-    title: "Estudar ",
-    inCompleted: 'false'
-  }
-]
+const data = []
 
 
 export function App() {
+const inputRef = useRef(null)
+const [tasks, setTasks] = useState(data)
+
+function handleAddTask() {
+  const newTask = {
+    id: tasks.length + 1,
+    title: inputRef.current.value,
+    isCompleted: false
+  }
+
+  setTasks([...tasks, newTask])
+
+  inputRef.current.value = ''
+}
+
   return (
    <main>
       <h1>Todo App</h1>
-      <input type="text" />
-      <button>Add</button>
+      <input placeholder="Nome da tarefa" ref={inputRef} type="text" />
+
+      <button onClick={handleAddTask}>Add</button>
+
       {tasks.length > 0 && tasks.map(item => (
         <Task key={item.id} task={item} />
       ))}
