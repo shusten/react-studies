@@ -1,12 +1,9 @@
 import { useRef, useState } from "react"
 import { Task } from "./components/Task"
 
-const data = []
-
-
 export function App() {
 const inputRef = useRef(null)
-const [tasks, setTasks] = useState(data)
+const [tasks, setTasks] = useState([])
 
 function handleAddTask() {
   const newTask = {
