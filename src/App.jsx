@@ -1,5 +1,6 @@
 import { useRef, useState } from "react"
 import { Task } from "./components/Task"
+import styles from './App.module.css';
 
 export function App() {
 const inputRef = useRef(null)
@@ -18,7 +19,7 @@ function handleAddTask() {
 }
 
   return (
-   <main>
+   <main className={styles.container}>
       <h1>Todo App</h1>
       <input placeholder="Nome da tarefa" ref={inputRef} type="text" />
 
