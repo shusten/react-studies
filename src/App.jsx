@@ -20,14 +20,19 @@ function handleAddTask() {
 
   return (
    <main className={styles.container}>
-      <h1>Todo App</h1>
-      <input placeholder="Nome da tarefa" ref={inputRef} type="text" />
+      <h1 className={styles.title}>Todo App</h1>
+      
+      <div className={styles.inputGroup}>
+        <input className={styles.input} placeholder="Nome da tarefa" ref={inputRef} type="text" />
+        <button className={styles.button} onClick={handleAddTask}>Add</button>
+      </div>
 
-      <button onClick={handleAddTask}>Add</button>
-
-      {tasks.length > 0 && tasks.map(item => (
-        <Task key={item.id} task={item} />
-      ))}
+      <div>
+        {tasks.length > 0 && tasks.map(item => (
+          <Task key={item.id} task={item} />
+        ))}
+      </div>
+      
 
       {!tasks.length && <p>Nenhuma tarefa ainda... 😕 </p>}
    </main>
