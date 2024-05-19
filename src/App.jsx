@@ -18,6 +18,20 @@ function handleAddTask() {
   inputRef.current.value = ''
 }
 
+function handleCompleteTask(id) {
+  const taskIndex = tasks.findIndex(item => item.id === id);
+
+  if(taskIndex === -1) {
+    return;
+  }
+
+  const newTasks = [...tasks]
+
+  newTasks[taskIndex].isCompleted = true
+  
+  setTasks(newTasks)
+}
+
   return (
    <main className={styles.container}>
       <h1 className={styles.title}>Todo App</h1>
@@ -29,7 +43,7 @@ function handleAddTask() {
 
       <div className={styles.tasks}>
         {tasks.length > 0 && tasks.map(item => (
-          <Task key={item.id} task={item} />
+          <Task key={item.id} task={item} handleCompleteTask={handleCompleteTask} />
         ))}
       {!tasks.length && <p>Nenhuma tarefa ainda... 😕 </p>}
       </div>
